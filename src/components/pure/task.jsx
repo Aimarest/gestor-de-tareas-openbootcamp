@@ -39,6 +39,15 @@ const TaskComponent = ({ task }) => {
                 break;
         }
     }
+
+    function taskCompletedIcon (){
+        if(task.completed){
+            return(<i className='bi-toggle-on' style={{color:'green'}}></i> )
+        }
+    else{
+        return (<i className='bi-toggle-off'style={{color:'grey'}}></i>)
+        
+    }};
     return (
 
 <tr className='fw-normal'>
@@ -57,10 +66,7 @@ const TaskComponent = ({ task }) => {
 </td>
 <td className='align-middle'>
 
-    {task.completed ? (<i className='bi-toggle-on' style={{color:'green'}}></i>) : (<i className='bi-toggle-off'style={{color:'grey'}}></i>)
-    }
-
-    <i className='bi-trash' style={{color:'tomato'}}></i>
+    {taskCompletedIcon()}
 
 </td>
 </tr>
