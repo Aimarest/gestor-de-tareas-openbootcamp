@@ -4,7 +4,7 @@ import './App.css';
 //import GreetingF from './components/pure/greetingF';
 import TaskListComponent from './components/container/task_list';
 import React from 'react';
-
+//import ContactListComponent from './components/container/contact_list';
 //import { useState } from 'react';
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
    {/* <Greeting name="Ana"/>*/ }
    {/*<GreetingF name ="Ana"/>*/}
    <TaskListComponent/>
+  {/* <ContactListComponent/>*/}
       </header>
     </div>
   );

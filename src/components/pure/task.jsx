@@ -6,10 +6,10 @@ const TaskComponent = ({ task }) => {
     return (
         <div>
            <h2>
-            Nombre: { task.name }
+            Name: { task.name }
            </h2> 
            <h3>
-            Descripción: { task.description }
+            Description: { task.description }
            </h3>
            <h4>
             Level: { task.level }
