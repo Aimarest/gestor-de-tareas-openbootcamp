@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import { Task } from '../../models/task.class';
+import { LEVELS } from '../../models/levels.enum';
 const TaskComponent = ({ task }) => {
 
     useEffect(() => {
@@ -9,6 +10,35 @@ const TaskComponent = ({ task }) => {
             console.log(`Task: ${task.name} is going to unmount`)
         };
     }, [task]);
+
+    function taskLevelBadge() {
+        switch (task.level) {
+            case LEVELS.NORMAL:
+                return (<h6 className='mb-0'>
+                    <span className='badge bg-primary'>
+                        {task.level}
+                    </span>
+                </h6>)
+            case LEVELS.URGENT:
+                return (
+                    <h6 className='mb-0'>
+                        <span className='badge bg-warning'>
+                            {task.level}
+                        </span>
+                    </h6>
+                )
+            case LEVELS.BLOCKING:
+                return (
+                    <h6 className='mb-0'>
+                        <span className='badge bg-danger'>
+                            {task.level}
+                        </span>
+                    </h6>
+                )
+            default:
+                break;
+        }
+    }
     return (
 
 <tr className='fw-normal'>
@@ -22,7 +52,7 @@ const TaskComponent = ({ task }) => {
 </td>
 <td className='align-middle'>
 <span>
-    {task.level}
+    {taskLevelBadge()}
 </span>
 </td>
 <td className='align-middle'>
