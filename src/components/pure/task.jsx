@@ -67,7 +67,7 @@ const TaskComponent = ({ task }) => {
 <td className='align-middle'>
 
     {taskCompletedIcon()}
-
+<i className='bi-trash'style={{color:'tomato'}}></i>
 </td>
 </tr>
     );

@@ -12,7 +12,7 @@ const TaskListComponent = () => {
 
     //Estado del componente:
 
-    const [tasks, settasks] = useState(defaultTask1,defaultTask2,defaultTask3);
+    const [tasks, setTasks] = useState([defaultTask1,defaultTask2,defaultTask3]);
     const [loading, setloading] = useState(true);
 
     //Control del ciclo de vida del componente:
@@ -40,7 +40,7 @@ const TaskListComponent = () => {
                         </h5>
                     </div>
                     {/*Card body:content*/ }
-                    <div className='card-body' data-mdb-perfect-scrollbar='true' style={{position:'relative', height:'400px'}}>
+                    <div className='card-body' data-mdb-perfect-scrollbar='true' style={{ position: 'relative', height: '400px' }}>
                         <table>
                             <thead>
                                 <tr>
@@ -58,9 +58,11 @@ const TaskListComponent = () => {
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody> 
-                              {/* To do: Aplicar un map o un for para renderizar una lista*/}
-            <TaskComponent task={tasks} />
+                            <tbody>
+                                {tasks.map((task, index) => {
+                                    return (<TaskComponent key={index} task={task} />)
+                                })}
+
 
                             </tbody>
                         </table>
