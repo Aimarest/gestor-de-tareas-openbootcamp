@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 
 const LoginForm = () => {
     const initialCredentials = [
-      {  user: '',
+      { 
+         user: '',
         password: ''}
     ];
     const [credentials, setCredentials] = useState(initialCredentials);

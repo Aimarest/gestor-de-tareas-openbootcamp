@@ -24,9 +24,12 @@ const TaskListComponent = () => {
             console.log('Taskslist component is going to unmount...')
         };
     }, [tasks]);
+function handleCompleteTask  (task) {
+      const index=  tasks.indexOf(task);
+       const tempTask = [...tasks];
+       tempTask[index].completed = !tempTask[index].completed;
+       setTasks(tempTask);
 
-    const changeCompleted = (id) =>{
-        console.log('To do: Cambiar el estado de una tarea')
     }
 
     return (
@@ -60,7 +63,7 @@ const TaskListComponent = () => {
                             </thead>
                             <tbody>
                                 {tasks.map((task, index) => {
-                                    return (<TaskComponent key={index} task={task} />)
+                                    return (<TaskComponent key={index} task={task} handleCompleteTask={handleCompleteTask}/>)
                                 })}
 
 

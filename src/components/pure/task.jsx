@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import { Task } from '../../models/task.class';
 import { LEVELS } from '../../models/levels.enum';
-const TaskComponent = ({ task }) => {
+import '../../styles/task.scss';
+const TaskComponent = ({ task, handleCompleteTask }) => {
 
     useEffect(() => {
        console.log(' Created Task')
@@ -39,13 +40,13 @@ const TaskComponent = ({ task }) => {
                 break;
         }
     }
-
+    
     function taskCompletedIcon (){
         if(task.completed){
-            return(<i className='bi-toggle-on' style={{color:'green'}}></i> )
+            return(<i className='bi-toggle-on task-action' style={{color:'green'}} onClick={()=>handleCompleteTask(task)}></i> )
         }
     else{
-        return (<i className='bi-toggle-off'style={{color:'grey'}}></i>)
+        return (<i className='bi-toggle-off task-action'style={{color:'grey'}} onClick={()=> handleCompleteTask(task)}></i>)
         
     }};
     return (
@@ -67,14 +68,14 @@ const TaskComponent = ({ task }) => {
 <td className='align-middle'>
 
     {taskCompletedIcon()}
-<i className='bi-trash'style={{color:'tomato'}}></i>
+<i className='bi-trash task-action'style={{color:'tomato'}}></i>
 </td>
 </tr>
     );
 };
 TaskComponent.propTypes = {
-task: PropTypes.instanceOf(Task)
-
+task: PropTypes.instanceOf(Task),
+handleCompleteTask: PropTypes.func.isRequired
 
 
 };
