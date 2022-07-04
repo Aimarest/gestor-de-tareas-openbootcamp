@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { LEVELS } from '../../models/levels.enum';
 import {  Task } from '../../models/task.class';
+import TaskForm from '../pure/forms/taskForm';
 import TaskComponent from '../pure/task';
 
 const TaskListComponent = () => {
@@ -37,6 +38,12 @@ function handleDelete(task){
    tempTask.splice(index,1);
      setTasks(tempTask)
 }
+function addTask(task){
+    const index = tasks.indexOf(task);
+    const tempTask = [...tasks];
+   tempTask.push(task);
+     setTasks(tempTask)
+}
     return (
         <div>
             <div className='col-12'>
@@ -70,7 +77,7 @@ function handleDelete(task){
                                 {tasks.map((task, index) => {
                                     return (<TaskComponent key={index} task={task} handleCompleteTask={handleCompleteTask} handleDelete={handleDelete}/>)
                                 })}
-
+<TaskForm add={addTask} />
 
                             </tbody>
                         </table>
