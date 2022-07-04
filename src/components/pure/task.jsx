@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Task } from '../../models/task.class';
 import { LEVELS } from '../../models/levels.enum';
 import '../../styles/task.scss';
-const TaskComponent = ({ task, handleCompleteTask }) => {
+const TaskComponent = ({ task, handleCompleteTask , handleDelete}) => {
 
     useEffect(() => {
        console.log(' Created Task')
@@ -68,15 +68,15 @@ const TaskComponent = ({ task, handleCompleteTask }) => {
 <td className='align-middle'>
 
     {taskCompletedIcon()}
-<i className='bi-trash task-action'style={{color:'tomato'}}></i>
+<i className='bi-trash task-action'style={{color:'tomato'}} onClick={()=>handleDelete(task)}></i>
 </td>
 </tr>
     );
 };
 TaskComponent.propTypes = {
 task: PropTypes.instanceOf(Task),
-handleCompleteTask: PropTypes.func.isRequired
-
+handleCompleteTask: PropTypes.func.isRequired,
+handleDelete: PropTypes.func.isRequired
 
 };
 

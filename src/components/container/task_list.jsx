@@ -31,7 +31,12 @@ function handleCompleteTask  (task) {
        setTasks(tempTask);
 
     }
-
+function handleDelete(task){
+    const index = tasks.indexOf(task);
+    const tempTask = [...tasks];
+   tempTask.splice(index,1);
+     setTasks(tempTask)
+}
     return (
         <div>
             <div className='col-12'>
@@ -63,7 +68,7 @@ function handleCompleteTask  (task) {
                             </thead>
                             <tbody>
                                 {tasks.map((task, index) => {
-                                    return (<TaskComponent key={index} task={task} handleCompleteTask={handleCompleteTask}/>)
+                                    return (<TaskComponent key={index} task={task} handleCompleteTask={handleCompleteTask} handleDelete={handleDelete}/>)
                                 })}
 
 
