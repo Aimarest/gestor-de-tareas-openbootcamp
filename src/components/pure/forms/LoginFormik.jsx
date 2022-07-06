@@ -31,24 +31,16 @@ const LoginFormik = () => {
         alert(JSON.stringify(values, null, 2));
 
         // We save the data in the localStorage
-        
+
         localStorage.setItem('credentials', values)
          }} 
          >
 
 
          {/* We obtain props from Formik*/}
-         { props =>{
-            const {
-                values,
-                touched,
-                errors,
-                isSubmitting,
-                handleChange,
-                handleBlur,
     
-           }= props;
-         return( 
+         {({errors,values, touched,isSubmitting, handleBlur,handleChange}) => (
+        
            <Form>
         <label htmlFor="email">Email</label>
         <Field
@@ -84,8 +76,7 @@ const LoginFormik = () => {
         <button type="submit">Submit</button>
         {isSubmitting ? (<p>Login your credentials...</p>) : null}
 </Form> 
-         )
-         }}
+         ) }
         </Formik>
         </div>
     );
