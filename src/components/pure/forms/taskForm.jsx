@@ -2,7 +2,7 @@ import React,{useRef} from 'react';
 import PropTypes from 'prop-types';
 import { LEVELS } from '../../../models/levels.enum';
 import { Task } from '../../../models/task.class';
-const TaskForm = ({add}) => {
+const TaskForm = ({add,length}) => {
 const nameRef = useRef('');
 const descriptionRef = useRef('');
 const levelRef = useRef(LEVELS.NORMAL);
@@ -31,13 +31,14 @@ function addTask(e){
                 <option value={LEVELS.URGENT}>URGENT</option>
                 <option value={LEVELS.BLOCKING}>BLOCKING</option>
             </select>
-            <button type='submit' className='btn btn-success btn-lg ms-2' onClick={addTask}>Add task</button>
+            <button type='submit' className='btn btn-success btn-lg ms-2' onClick={addTask}>{length > 0 ?'Add task': 'Create your first task'}</button>
             </div>
             </form>
         </div>
     );
 }
 TaskForm.protoTypes = {
-    add: PropTypes.func.isRequired
+    add: PropTypes.func.isRequired,
+    length: PropTypes.number.isRequired
 }
 export default TaskForm;

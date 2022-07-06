@@ -95,7 +95,7 @@ function addTask(task){
                     {/*Card body:content*/ }
                     <div className='card-body' data-mdb-perfect-scrollbar='true' style={{ position: 'relative' }}>
                        {taskTable}
-                       <TaskForm add={addTask} />
+                       <TaskForm add={addTask} length={tasks.length} />
                     </div>
                 </div>
 
