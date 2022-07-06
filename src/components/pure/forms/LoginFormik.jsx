@@ -27,8 +27,12 @@ const LoginFormik = () => {
         //onsubmit event
 
         onSubmit={ async (values) => {
-        await new Promise((r) => setTimeout(r, 500));
+        await new Promise((response) => setTimeout(response, 1000));
         alert(JSON.stringify(values, null, 2));
+
+        // We save the data in the localStorage
+        
+        localStorage.setItem('credentials', values)
          }} 
          >
 
@@ -78,6 +82,7 @@ const LoginFormik = () => {
         }
 
         <button type="submit">Submit</button>
+        {isSubmitting ? (<p>Login your credentials...</p>) : null}
 </Form> 
          )
          }}
