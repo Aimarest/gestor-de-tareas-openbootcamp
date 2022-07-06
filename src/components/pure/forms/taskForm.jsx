@@ -16,6 +16,21 @@ function addTask(e){
         levelRef.current.value );
         add(newTask)
 }
+let optionNormal = {
+    backgroundColor:'blue',
+    color: 'lightBlue',
+    fontWeight: 'bold'
+}
+let optionUrgent = {
+    backgroundColor:'gold',
+    color: 'orange',
+    fontWeight: 'bold'
+}
+let optionBlocking = {
+    backgroundColor:'tomato',
+    color: 'red',
+    fontWeight: 'bold'
+}
     return (
         <div>
             <h2>Añadir tarea</h2>
@@ -27,9 +42,9 @@ function addTask(e){
             <input id='description'className='form-control form-control-lg' required  ref={descriptionRef}></input>
             <label htmlFor='level'>Level</label>
             <select id='level' className='form-control form-control-lg' defaultValue={LEVELS.NORMAL}  ref={levelRef}>
-                <option value={LEVELS.NORMAL}>NORMAL</option>
-                <option value={LEVELS.URGENT}>URGENT</option>
-                <option value={LEVELS.BLOCKING}>BLOCKING</option>
+                <option style={optionNormal} value={LEVELS.NORMAL}>NORMAL</option>
+                <option style={optionUrgent} value={LEVELS.URGENT}>URGENT</option>
+                <option style={optionBlocking} value={LEVELS.BLOCKING}>BLOCKING</option>
             </select>
             <button type='submit' className='btn btn-success btn-lg ms-2' onClick={addTask}>{length > 0 ?'Add task': 'Create your first task'}</button>
             </div>
