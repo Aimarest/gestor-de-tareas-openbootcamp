@@ -49,9 +49,22 @@ const TaskComponent = ({ task, handleCompleteTask , handleDelete}) => {
         return (<i className='bi-toggle-off task-action'style={{color:'grey'}} onClick={()=> handleCompleteTask(task)}></i>)
         
     }};
+
+    /*También se podría hacer con variables de estilo:
+    const taskCompleted = {
+        color:'gray',
+        fontWeight:'bold',
+        textDecoration:'line-through'
+    }
+    const taskPending = {
+        fontWeight:'bold',
+        color: 'tomato'
+    }
+    <tr className="fw-normal" style={task.completed ? taskCompleted : taskPending }>
+    */
     return (
 
-<tr className='fw-normal'>
+<tr className={`fw-normal ${task.completed ? 'task-completed' : 'task-pending'}`}>
 <th>
     <span className='ms-2'>{task.name}</span>
 </th>
